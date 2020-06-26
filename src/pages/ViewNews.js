@@ -23,10 +23,7 @@ import { WIDTH } from "../utils/Dimensions";
 const ViewNews = (props) => {
   let { newsObj } = props.route.params;
   const { thumbnail, title, author, publishDate, description } = newsObj;
-  console.log("description: ", description);
-  console.log("publishDate: ", publishDate);
-  console.log("author: ", author);
-  console.log("title: ", title);
+
   //   if (!newsList) {
   //     return <Loader />;
   //   }

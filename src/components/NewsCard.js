@@ -44,13 +44,11 @@ const styles = StyleSheet.create({
   main: {
     flex: 1,
     width: "95%",
-    marginTop: 5,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    backgroundColor: "white",
   },
   image: {
-    width: WIDTH,
+    // width: WIDTH,
+    width: "100%",
+
     height: 200,
     marginBottom: 10,
     alignSelf: "center",

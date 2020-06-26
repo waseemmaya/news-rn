@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Image } from "react-native";
+import { StyleSheet, Image, View } from "react-native";
 import Loader from "../components/Loader";
 import {
   Container,
   Textarea,
   Content,
   Form,
-  Spinner,
   Toast,
   Item,
   Text,
@@ -20,9 +19,9 @@ import * as Permissions from "expo-permissions";
 import { postNewsService } from "../services/news";
 
 const PostNews = (props) => {
-  const [pickedImage, setPickedImage] = useState("");
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
+  const [pickedImage, setPickedImage] = useState(``);
+  const [title, setTitle] = useState(``);
+  const [author, setAuthor] = useState(``);
   const [description, setDescription] = useState(``);
   const [posting, setPosting] = useState(false);
 
@@ -116,13 +115,20 @@ const PostNews = (props) => {
             bordered
             placeholder="Description"
           />
-          <Button info onPress={_pickImage}>
+          <Button info style={styles.btn1} onPress={_pickImage}>
             <Text> Select Image </Text>
           </Button>
-          {pickedImage !== "" && (
-            <Image style={styles.imgStyle} source={{ uri: pickedImage }} />
-          )}
-          <Button style={styles.btn} info onPress={handleSubmit}>
+          <View style={styles.imgView}>
+            {pickedImage !== "" && (
+              <Image
+                style={styles.imgStyle}
+                source={{
+                  uri: pickedImage,
+                }}
+              />
+            )}
+          </View>
+          <Button style={styles.btn2} onPress={handleSubmit}>
             <Text> Submit </Text>
           </Button>
         </Form>
@@ -134,10 +140,23 @@ const PostNews = (props) => {
 export default PostNews;
 
 const styles = StyleSheet.create({
-  btn: {
+  btn1: {
+    marginTop: 20,
+    width: 140,
+    alignSelf: "center",
+  },
+  btn2: {
     marginTop: 20,
     width: 90,
     alignSelf: "center",
   },
-  imgStyle: { width: 200, height: 200 },
+  imgView: {
+    margin: 5,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  imgStyle: {
+    width: 200,
+    height: 200,
+  },
 });

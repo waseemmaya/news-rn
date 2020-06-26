@@ -44,9 +44,9 @@ const ViewNews = (props) => {
             <Text note>{moment(publishDate).fromNow()}</Text>
           </Left>
         </CardItem>
-        <Body>
-          <Image source={{ uri: thumbnail }} style={styles.image} />
-        </Body>
+        {/* <Body> */}
+        <Image source={{ uri: thumbnail }} style={styles.image} />
+        {/* </Body> */}
         <CardItem>
           <Text>{title}</Text>
         </CardItem>
@@ -66,15 +66,13 @@ export default ViewNews;
 const styles = StyleSheet.create({
   main: {
     flex: 1,
-    width: "100%",
+    // width: "100%",
     backgroundColor: "white",
   },
   image: {
-    width: WIDTH - 20,
+    width: "100%",
     height: 200,
-    // marginBottom: 10,
-    // justifyContent: "center",
-    // alignItems: "center",
-    // alignSelf: "center",
+    marginBottom: 10,
+    alignSelf: "center",
   },
 });
